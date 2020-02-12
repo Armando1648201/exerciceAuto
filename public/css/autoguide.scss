@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Tulpen+One|Play&display=swap');
+
+:root {
+	--couleur-foncee: #375387;
+	--couleur-foncee: #121E3A;
+}
+
+body,
+html {
+	height: 100%;
+}
+body {
+	font-family: 'Play', sans-serif;
+	background-color: #EEEEEE;
+	background-image: url(../images/fond.png);
+	margin: 0;
+}
+a {
+	color: inherit;
+	text-decoration: inherit;
+	&:hover {
+		color: yellow;
+	}
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+div.interface {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	& > header,
+	& > footer {
+		background-color: var(--couleur-foncee);
+		color: #876E37;
+		text-align: center;
+		font-style: italic;
+		font-weight: bold;
+		& * {
+			margin: 0;
+		}
+	}
+	& > header {
+		font-family: 'Tulpen One', cursive;
+		text-shadow: 3px 3px 3px rgba(0, 0, 0, .5);
+		display: flex;
+		flex: 0 0 auto;
+		flex-direction: column;
+		& h1 {
+			background-image: url(images/fond_voiture.png);
+			background-repeat: no-repeat;
+			background-position: left;
+			background-size: auto 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			font-size: 4em;
+		}
+	}
+	& > section {
+		flex: 1 0 auto;
+		padding: 1em;
+	}
+}
+nav#ariane {
+	background-color: #3A2C0C;
+	color: white;
+	font-size: 1rem;
+	text-align: center;
+	font-style: italic;
+	font-weight: bold;
+	padding: .25em;
+	& > ul {
+		list-style-type: none;
+		display: flex;
+		justify-content: center;
+		& > * + * {
+			&:before {
+				margin: 0 .5em;
+				content: ">";
+			}
+		}
+	}
+	& a {
+		color: white;
+	}
+}
+section.body {
+	// display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+article {
+	border-radius: 1em 1em 1em 1em;
+	color: var(--couleur-foncee);
+	// border: .2em solid;
+	background: none repeat scroll 0 0 #cdd8ed;
+	margin: 0 auto;
+	padding: 0em;
+	box-sizing: border-box;
+	overflow: hidden;
+	// min-width: 16em;
+	& > header {
+		background: var(--couleur-foncee);
+		& > h1 {
+			color: #cdd8ed;
+			font-size: 2em;
+			margin: 0;
+			margin-bottom: .5em;
+			padding: 0 .5em;
+
+			font-family: 'Saira Stencil One', cursive;
+		
+			font-family: 'Bahianita', cursive;
+		
+			font-family: 'Tulpen One', cursive;
+					// font-variant: small-caps;
+		}
+	}
+	& > ul {
+		padding: .5em;
+		padding-top: 0;
+	}
+	& h2 {
+		color: var(--couleur-foncee);
+		margin-bottom: 0em;
+	}
+}
+ul.listeMarques,
+ul.listeModeles {
+	& a {
+		text-decoration: none;
+		color:inherit;
+		&:hover {
+			color:yellow;
+		}
+	}
+}
+ul.listeMarques
+{
+	display: grid;
+	grid-gap: 1em;
+	list-style-type: none;
+	& > li > a {
+		font-size: 1.3em;
+		font-weight: bold;
+		background-color: rgba(0,0,0,.1);
+		display: block;
+		padding: 0 .5em;
+	}
+}
+ul.listeModeles {
+	display: grid;
+	grid-gap: .5em;
+	margin-top: .5em;
+	grid-template-columns: repeat(auto-fill, minmax(12em, 12em));
+	& > li {
+		list-style-type: none;
+		& > a {
+			display: flex;
+			& > * + * {
+				margin-left: .5em;
+			}
+			& > img {
+				width:3rem;
+				height:3rem;
+			}
+			& > span {
+				flex: 1 0 0;
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+}
+div.voiture {
+	padding: 1em;
+}
+img.voiture {
+	float: right;
+	border: 1px solid black;
+	box-shadow: .1em .1em .2em rgba(0, 0, 0, .5);
+}
+img.tb {
+	border-radius: 100%;
+}
+ul.consommation,
+ul.transmissions {
+	margin: 0;
+	list-style-type: none;
+	padding: 0;
+}
+table.caracteristiques {
+	border-collapse: collapse;
+	width: 100%;
+	& td {
+		border: 1px solid var(--couleur-foncee);
+		border-style: solid none;
+		&.etiquette {
+			padding-right: 1em;
+			font-weight: bold;
+		}
+	}
+}
+@media (min-aspect-ratio:3/4) {
+	html {
+		font-size: 4.5vh;
+	}
+}
+@media (max-aspect-ratio:3/4) {
+	html {
+		font-size: 6vw;
+	}
+}
