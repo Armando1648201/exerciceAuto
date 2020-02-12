@@ -11,9 +11,16 @@ Cette page devrait contenir les tests des méthodes
 - Commencer par le fichier Auto.php
 =========================================================================
 */
-include_once("../src/Auto.php");
 include_once("../src/donnees.inc.php");
+include_once("../src/Auto.php");
 /*LIGNE DE TEST*/
-echo Auto::titre('Ford', 'Fiesta', 'strong');
+// echo Auto::titre('Ford', 'Fiesta', 'strong');
+// echo Auto::titre('Ford', 'Fiesta', 'h1');
+// var_dump(Auto::trouverModele($voitures, 'Lada', 'California'));
+// var_dump(Auto::trouverModele($voitures, 'Ford', 'California'));
+// var_dump(Auto::trouverModele($voitures, 'Ford', 'Fiesta'));
+var_dump(Auto::ariane());
+var_dump(Auto::ariane('Ford'));
+var_dump(Auto::ariane('Lada', 'California'));
+
 // ... CONTINUER ...
-?>
