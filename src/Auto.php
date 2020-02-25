@@ -67,22 +67,36 @@ class Auto {
 	 */
 	static public function ariane($nomMarque="", $nomModele="")
 	{
-		if($nomMarque != "")
-		{
-			return 'location:public/index.php';
+		if($nomMarque){
+			$resultat .= '<nav id="ariane">';
+			$resultat .= '<ul>';
+			$resultat .= '<li><a href="index.php">Accueil</a></li>';
+			$resultat .= '<li><span>'.$nomMarque.'</span></li>';
+			$resultat .= '</ul>';
+			$resultat .= '</nav>';
+			return $resultat;
 		}
-		if ($nomMo != "")
-		{
-			return 'Accueil';
+
+		if($nomMarque != ""){
+			$resultat .= '<nav id="ariane">';
+			$resultat .= '<ul>';
+			$resultat .= '<li><span>Accueil</span></li>';
+			$resultat .= '</ul>';
+			$resultat .= '</nav>';
+			return $resultat;
 		}
-		$resultat .='<nav id="ariane">';
-		$resultat .='<ul>';
-		$resultat .='<li><a href="index.php">Accueil</a></li>';
-		$resultat .='<li><a href="marque.php?nomMarque=Ferrari">Ferrari</a></li>';
-		$resultat .='<li><span>California</span></li>';
-		$resultat .='</ul>';
-		$resultat .='</nav>';
-		return $resultat;
+
+
+	
+		if($nomMarque != "" && $nomModele != ""){
+			$resultat .= '<nav id="ariane">';
+			$resultat .= '<ul>';
+			$resultat .= '<li><span>Accueil</span></li>';
+			$resultat .= '</ul>';
+			$resultat .= '</nav>';
+			return $resultat;
+		}
+		
 	}
 	
 	 
@@ -94,6 +108,89 @@ class Auto {
 	 */
 	static public function lien($nomMarque, $nomModele)
 	{
+		if($nomMarque || $nomModele){
+			$resultat .= '<div class="voiture"><img class="voiture" src="images/voitures/ferrari_california.jpg"';
+			$resultat .= 'alt="Ferrari California" title="Ferrari California" />';
+			$resultat .= '<h2>Prix de base</h2>';
+			$resultat .= '<div class="prix">192000 $</div>';
+			$resultat .= '<h2>Caractéristiques</h2>';
+			$resultat .= '<table class="caracteristiques">';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Moteur : </td>';
+			$resultat .= '<td>V8 4,3 litres</td>';
+			$resultat .= '</tr>';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Puissance : </td>';
+			$resultat .= '<td>460 ch @ 7750 tr/min</td>';
+			$resultat .= '</tr>';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Couple : </td>';
+			$resultat .= '<td>358 lb-pi @ 5000 tr/min</td>';
+			$resultat .= '</tr>';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Transmissions : </td>';
+			$resultat .= '<td>';
+			$resultat .= '<ul class="transmissions">';
+			$resultat .= '<li>Séquentielle</li>';
+			$resultat .= '<li>Manuelle, 6 rapports</li>';
+			$resultat .= '</ul>';
+			$resultat .= '</td>';
+			$resultat .= '</tr>';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Consommation : </td>';
+			$resultat .= '<td>';
+			$resultat .= '<ul class="consommation">';
+			$resultat .= '<li>Ville : 16.9 litres/100 km</li>';
+			$resultat .= '<li>Autoroute : 10.6 litres/100 km</li>';
+			$resultat .= '</ul>';
+			$resultat .= '</td>';
+			$resultat .= '</tr>';
+			$resultat .= '</table>';
+			$resultat .= '</div>';
+			return $resultat;
+		}
+
+		if($nomMarque && $nomModele){
+			$resultat .= '<div class="voiture"><img class="voiture" src="images/voitures/ferrari_california.jpg"';
+			$resultat .= 'alt="Ferrari California" title="Ferrari California" />';
+			$resultat .= '<h2>Prix de base</h2>';
+			$resultat .= '<div class="prix">192000 $</div>';
+			$resultat .= '<h2>Caractéristiques</h2>';
+			$resultat .= '<table class="caracteristiques">';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Moteur : </td>';
+			$resultat .= '<td>V8 4,3 litres</td>';
+			$resultat .= '</tr>';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Puissance : </td>';
+			$resultat .= '<td>460 ch @ 7750 tr/min</td>';
+			$resultat .= '</tr>';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Couple : </td>';
+			$resultat .= '<td>358 lb-pi @ 5000 tr/min</td>';
+			$resultat .= '</tr>';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Transmissions : </td>';
+			$resultat .= '<td>';
+			$resultat .= '<ul class="transmissions">';
+			$resultat .= '<li>Séquentielle</li>';
+			$resultat .= '<li>Manuelle, 6 rapports</li>';
+			$resultat .= '</ul>';
+			$resultat .= '</td>';
+			$resultat .= '</tr>';
+			$resultat .= '<tr>';
+			$resultat .= '<td class="etiquette">Consommation : </td>';
+			$resultat .= '<td>';
+			$resultat .= '<ul class="consommation">';
+			$resultat .= '<li>Ville : 16.9 litres/100 km</li>';
+			$resultat .= '<li>Autoroute : 10.6 litres/100 km</li>';
+			$resultat .= '</ul>';
+			$resultat .= '</td>';
+			$resultat .= '</tr>';
+			$resultat .= '</table>';
+			$resultat .= '</div>';
+			return $resultat;
+		}
 
 	}
 
