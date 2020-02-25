@@ -21,7 +21,7 @@ include_once("../src/Auto.php");
 // var_dump(Auto::trouverModele($voitures, 'Ford', 'Fiesta'));
 // var_dump(Auto::ariane());
 // var_dump(Auto::ariane('Ford'));
-// var_dump(Auto::ariane('Lada', 'California'));
+// var_dump(Auto::ariane('Ford', 'Fiesta'));
 var_dump(Auto::lien());
 var_dump(Auto::lien('Fiesta'));
 var_dump(Auto::lien('Ford'));

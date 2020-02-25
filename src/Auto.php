@@ -26,6 +26,7 @@ class Auto {
 	 * @return string - Le titre mis en forme
 	*/
 	static public function titre($nomMarque, $nomModele="", $balise="") {
+		$resultat = '';
 		$resultat = $nomMarque;
 		if ($nomModele != "") {
 			$resultat = $nomMarque." ".$nomModele;
@@ -46,6 +47,7 @@ class Auto {
 	 */
 	static public function trouverModele($autos, $nomMarque, $nomModele)
 	{
+		$resultat = '';
 		if(!isset($autos[$nomMarque])) {
 			return false;
 		}
@@ -67,36 +69,26 @@ class Auto {
 	 */
 	static public function ariane($nomMarque="", $nomModele="")
 	{
+		$resultat = '';
+		$resultat .= '<nav id="ariane">';
+		$resultat .= '<ul>';
+
 		if($nomMarque){
-			$resultat .= '<nav id="ariane">';
-			$resultat .= '<ul>';
 			$resultat .= '<li><a href="index.php">Accueil</a></li>';
+		}else{
+			$resultat .= '<li><span>Accueil</span></li>';
+		}
+
+		if($nomModele != ""){
+			$resultat .= '<li><a href="marque.php">'.$nomMarque.'</a></li>';
+			$resultat .= '<li><span>'.$nomModele.'</span></li>';
+			
+		}else{
 			$resultat .= '<li><span>'.$nomMarque.'</span></li>';
-			$resultat .= '</ul>';
-			$resultat .= '</nav>';
-			return $resultat;
 		}
-
-		if($nomMarque != ""){
-			$resultat .= '<nav id="ariane">';
-			$resultat .= '<ul>';
-			$resultat .= '<li><span>Accueil</span></li>';
-			$resultat .= '</ul>';
-			$resultat .= '</nav>';
-			return $resultat;
-		}
-
-
-	
-		if($nomMarque != "" && $nomModele != ""){
-			$resultat .= '<nav id="ariane">';
-			$resultat .= '<ul>';
-			$resultat .= '<li><span>Accueil</span></li>';
-			$resultat .= '</ul>';
-			$resultat .= '</nav>';
-			return $resultat;
-		}
-		
+		$resultat .= '</ul>';
+		$resultat .= '</nav>';
+		return $resultat;
 	}
 	
 	 
