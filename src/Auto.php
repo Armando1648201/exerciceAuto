@@ -86,6 +86,8 @@ class Auto {
 		}else{
 			$resultat .= '<li><span>'.$nomMarque.'</span></li>';
 		}
+
+		
 		$resultat .= '</ul>';
 		$resultat .= '</nav>';
 		return $resultat;
@@ -100,90 +102,11 @@ class Auto {
 	 */
 	static public function lien($nomMarque, $nomModele)
 	{
-		if($nomMarque || $nomModele){
-			$resultat .= '<div class="voiture"><img class="voiture" src="images/voitures/ferrari_california.jpg"';
-			$resultat .= 'alt="Ferrari California" title="Ferrari California" />';
-			$resultat .= '<h2>Prix de base</h2>';
-			$resultat .= '<div class="prix">192000 $</div>';
-			$resultat .= '<h2>Caractéristiques</h2>';
-			$resultat .= '<table class="caracteristiques">';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Moteur : </td>';
-			$resultat .= '<td>V8 4,3 litres</td>';
-			$resultat .= '</tr>';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Puissance : </td>';
-			$resultat .= '<td>460 ch @ 7750 tr/min</td>';
-			$resultat .= '</tr>';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Couple : </td>';
-			$resultat .= '<td>358 lb-pi @ 5000 tr/min</td>';
-			$resultat .= '</tr>';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Transmissions : </td>';
-			$resultat .= '<td>';
-			$resultat .= '<ul class="transmissions">';
-			$resultat .= '<li>Séquentielle</li>';
-			$resultat .= '<li>Manuelle, 6 rapports</li>';
-			$resultat .= '</ul>';
-			$resultat .= '</td>';
-			$resultat .= '</tr>';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Consommation : </td>';
-			$resultat .= '<td>';
-			$resultat .= '<ul class="consommation">';
-			$resultat .= '<li>Ville : 16.9 litres/100 km</li>';
-			$resultat .= '<li>Autoroute : 10.6 litres/100 km</li>';
-			$resultat .= '</ul>';
-			$resultat .= '</td>';
-			$resultat .= '</tr>';
-			$resultat .= '</table>';
-			$resultat .= '</div>';
-			return $resultat;
-		}
-
-		if($nomMarque && $nomModele){
-			$resultat .= '<div class="voiture"><img class="voiture" src="images/voitures/ferrari_california.jpg"';
-			$resultat .= 'alt="Ferrari California" title="Ferrari California" />';
-			$resultat .= '<h2>Prix de base</h2>';
-			$resultat .= '<div class="prix">192000 $</div>';
-			$resultat .= '<h2>Caractéristiques</h2>';
-			$resultat .= '<table class="caracteristiques">';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Moteur : </td>';
-			$resultat .= '<td>V8 4,3 litres</td>';
-			$resultat .= '</tr>';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Puissance : </td>';
-			$resultat .= '<td>460 ch @ 7750 tr/min</td>';
-			$resultat .= '</tr>';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Couple : </td>';
-			$resultat .= '<td>358 lb-pi @ 5000 tr/min</td>';
-			$resultat .= '</tr>';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Transmissions : </td>';
-			$resultat .= '<td>';
-			$resultat .= '<ul class="transmissions">';
-			$resultat .= '<li>Séquentielle</li>';
-			$resultat .= '<li>Manuelle, 6 rapports</li>';
-			$resultat .= '</ul>';
-			$resultat .= '</td>';
-			$resultat .= '</tr>';
-			$resultat .= '<tr>';
-			$resultat .= '<td class="etiquette">Consommation : </td>';
-			$resultat .= '<td>';
-			$resultat .= '<ul class="consommation">';
-			$resultat .= '<li>Ville : 16.9 litres/100 km</li>';
-			$resultat .= '<li>Autoroute : 10.6 litres/100 km</li>';
-			$resultat .= '</ul>';
-			$resultat .= '</td>';
-			$resultat .= '</tr>';
-			$resultat .= '</table>';
-			$resultat .= '</div>';
-			return $resultat;
-		}
-
+		$resultat = '';
+		$resultat .= '<a href="modele.php?nomMarque='.$nomMarque.'&amp;nomModele='.$nomModele.'"><img class="tb"
+		src="images/voitures/'.$nomMarque.'_'.$nomModele.'_tb.jpg" alt="'.$nomMarque.' '.$nomModele.'"
+		title="'.$nomMarque.' '.$nomModele.'" /><span>'.$nomModele.'</span></a>';
+		return $resultat;
 	}
 
 	/** Méthode "image" qui retourne le code HTML d'une image composé en fonction des paramètres
@@ -196,9 +119,16 @@ class Auto {
 	 * @param string $class - La classe à donner à la balise. Valeur par défaut: "voiture". Note: Si la classe est différente de "voiture", le nom de l'image doit automatiquement être accompagné du suffixe "_tb"
 	 * @return string - Le HTML de la balise <img>
 	 */
-	static public function image($nomMarque, $nomModele, $class)
+	static public function image($nomMarque, $nomModele, $class = 'voiture')
 	{
-
+		$resultat = '';
+		if($class == "voiture"){
+			$resultat .= '<img src="images/voitures/'.$nomMarque.'_'.$nomModele.'.jpg" class="'.$class.'" alt="'.$nomMarque.' '.$nomModele.'" title="'.$nomMarque.' '.$nomModele.'" />';
+		}else{
+			$resultat .= '<img src="images/voitures/'.$nomMarque.'_'.$nomModele.'_tb.jpg" class="'.$class.'" alt="'.$nomMarque.' '.$nomModele.'" title="'.$nomMarque.' '.$nomModele.'" />';
+		}
+		return $resultat;
+		
 	}
 
 	/** Méthode "listeMarques" qui retourne le HTML du ul "listeMarques"
@@ -207,8 +137,18 @@ class Auto {
 	 * @return string - Le HTML du div "listeMarques"
 	 */
 	static public function listeMarques($autos)
-	{
-
+	{	
+		$resultat = '';
+		$resultat .= '<ul class="listeMarques">';
+		foreach($autos as $idMarque => $naty){
+			$resultat .= '<ul class="listeModeles">';
+			$resultat .= '<li><a href="marque.php?nomMarque='.$idMarque.'">'.$idMarque.'</a>';
+			$resultat .= self::listeModeles($idMarque, $naty);
+			$resultat .= '</li>';
+			$resultat .= '</ul>';
+		}
+		$resultat .= '</ul>';
+		return $resultat;
 	}
 
 	 /** Méthode "listeModeles" qui retourne le HTML du ul "listeModeles"
@@ -219,7 +159,14 @@ class Auto {
 	 */
 	static public function listeModeles($nomMarque, $autosMarque)
 	{
-
+		$resultat = '';
+		foreach($autos as $idModeles => $valeur){
+			$resultat .= '<li><a href="modele.php?nomMarque=Ford&amp;nomModele='.$idMarque.'"><img class="tb"';
+			'src="images/voitures/ford_'.$idMarque.'_tb.jpg" alt="Ford '.$idMarque.'"';
+			'title="Ford '.$idMarque.'" /><span>'.$idMarque.'</span></a></li>';
+		}
+		
+		return $resultat;
 	}
 
 	/**	Méthode "ligne" qui retourne une ligne (<tr>) du tableau des caractéristiques

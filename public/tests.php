@@ -22,9 +22,12 @@ include_once("../src/Auto.php");
 // var_dump(Auto::ariane());
 // var_dump(Auto::ariane('Ford'));
 // var_dump(Auto::ariane('Ford', 'Fiesta'));
-var_dump(Auto::lien());
-var_dump(Auto::lien('Fiesta'));
-var_dump(Auto::lien('Ford'));
-var_dump(Auto::lien('Ford', 'Fiesta'));
+// var_dump(Auto::lien('Fiesta'));
+// var_dump(Auto::lien('Ford'));      
+// var_dump(Auto::lien('Ford', 'Focus'));
+// var_dump (Auto::image('Ford', 'Fiesta', 'voiture'));
+// var_dump (Auto::image('Ford', 'Fiesta', 'peanut'));
+var_dump (Auto::listMarques($voitures));
+var_dump (Auto::listModeles('Ford', $voitures));
 
 // ... CONTINUER ...
