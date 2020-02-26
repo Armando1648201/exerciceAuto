@@ -27,7 +27,12 @@ include_once("../src/Auto.php");
 // var_dump(Auto::lien('Ford', 'Focus'));
 // var_dump (Auto::image('Ford', 'Fiesta', 'voiture'));
 // var_dump (Auto::image('Ford', 'Fiesta', 'peanut'));
-var_dump (Auto::listMarques($voitures));
-var_dump (Auto::listModeles('Ford', $voitures));
+// $ford = $voitures['Nissan'];
+// // var_dump (Auto::listeMarques($voitures));
+// var_dump (Auto::listeModeles('Nissan', $ford));
+// var_dump (Auto::ligne('Prix', 'bob'));
+// var_dump (Auto::ligne_puissance($voitures["Nissan"]["Versa"]));
+// var_dump (Auto::ligne_transmissions($voitures["Nissan"]["Versa"]));
+// var_dump (Auto::ligne_consommation($voitures["Nissan"]["Versa"]));
 
 // ... CONTINUER ...
