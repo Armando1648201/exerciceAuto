@@ -34,5 +34,6 @@ include_once("../src/Auto.php");
 // var_dump (Auto::ligne_puissance($voitures["Nissan"]["Versa"]));
 // var_dump (Auto::ligne_transmissions($voitures["Nissan"]["Versa"]));
 // var_dump (Auto::ligne_consommation($voitures["Nissan"]["Versa"]));
+// var_dump (Auto::affichageVoiture($voitures, 'Ford','Fiesta'));
 
 // ... CONTINUER ...

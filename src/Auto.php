@@ -228,9 +228,9 @@ class Auto {
 		$resultat .= '<ul>';
 		foreach($voiture['transmissions'] as $value)
 		{
-		$resultat .= '<li>';
-		$resultat .= $value;
-		$resultat .= '</li>';
+			$resultat .= '<li>';
+			$resultat .= $value;
+			$resultat .= '</li>';
 		}
 		$resultat .= '</ul>';
 		return self::ligne('transmissions', $resultat);
@@ -245,18 +245,16 @@ class Auto {
 	{
 		$resultat = '';
 
-		$resultat = '';
 		$resultat .= '<ul>';
-		foreach($voiture['consommation'] as $value)
+		foreach($voiture['consommation'] as $key=>$value)
 		{
-		$resultat .= '<li>';
-		$resultat .= $value;
-		$resultat .= '</li>';
+			$resultat .= '<li>';
+			$resultat .= $key. ' : ' .$value;
+			$resultat .= '</li>';
 		}
 		$resultat .= '</ul>';
-		return self::ligne('consomation', $resultat);
+		return self::ligne('consommation', $resultat);
 
-		return $resultat;
 	}
 
 	/** Méthode "affichageVoiture" qui retourne le div "voiture" contenant la description d'une voiture
@@ -271,46 +269,33 @@ class Auto {
 	{
 		$resultat = '';
 
-
-// <div class="voiture">
-// self::image($nomMarque, $idMarque, 'voiture');
-// <h2>Prix de base</h2>
-// <div class="prix">192000 $</div>
-// <h2>Caractéristiques</h2>
-// <table class="caracteristiques">
-// <tr>
-// <td class="etiquette">Moteur : </td>
-// <td>V8 4,3 litres</td>
-// </tr>
-// <tr>
-// <td class="etiquette">Puissance : </td>
-// <td>460 ch @ 7750 tr/min</td>
-// </tr>
-// <tr>
-// <td class="etiquette">Couple : </td>
-// <td>358 lb-pi @ 5000 tr/min</td>
-// </tr>
-// <tr>
-// <td class="etiquette">Transmissions : </td>
-// <td>
-// <ul class="transmissions">
-// <li>Séquentielle</li>
-// <li>Manuelle, 6 rapports</li>
-// </ul>
-// </td>
-// </tr>
-// <tr>
-// <td class="etiquette">Consommation : </td>
-// <td>
-// <ul class="consommation">
-// <li>Ville : 16.9 litres/100 km</li>
-// <li>Autoroute : 10.6 litres/100 km</li>
-// </ul>
-// </td>
-// </tr>
-// </table>
-// </div>
-
+		// trouverModele($autos, $nomMarque, $nomModele)
+		// ariane($nomMarque="", $nomModele="")
+		// lien($nomMarque, $nomModele)
+		// image($nomMarque, $nomModele, $class = 'voiture')
+		// listeMarques($autos)
+		// listeModeles($nomMarque, $autosMarque)
+		// ligne($etiquette, $contenu)
+		// ligne_puissance($voiture)
+		// ligne_couple($voiture)
+		// ligne_transmissions($voiture)
+		// ligne_consommation($voiture)
+		
+		$resultat .= '<div class="voiture">';
+		$resultat .= self::image($nomMarque, $nomModele, 'voiture')	;
+		$resultat .= '<h2>Prix de base</h2>';
+		$resultat .= self::ligne('prix de base',$voiture[$nomMarque][$nomModele]['prix']);
+		$resultat .= '<h2>Caractéristiques</h2>';
+		$resultat .= '<table class="caracteristiques">';
+		$resultat .= self::ligne('Moteur',$voiture[$nomMarque][$nomModele]['moteur']);
+		$resultat .= self::ligne('puissance', $voiture[$nomMarque][$nomModele]['puissance']);
+		$resultat .= self::ligne('couple', $voiture[$nomMarque][$nomModele]['couple']);
+		$resultat .= self::ligne('transmissions',$voiture[$nomMarque][$nomModele]['transmissions'][0]);
+		$resultat .= self::ligne('transmissions',$voiture[$nomMarque][$nomModele]['transmissions'][1]);
+		$resultat .= self::ligne('consommation ville',$voiture[$nomMarque][$nomModele]['consommation']['ville']);
+		$resultat .= self::ligne('consommation autoroute',$voiture[$nomMarque][$nomModele]['consommation']['autoroute']);
+		$resultat .= '</table>';
+		$resultat .= '</div>';
 
 		return $resultat;
 	}	
