@@ -1,4 +1,5 @@
 <?php
+/*
 =========================================================================
 Intégration web III - TP1
 -------------------------------------------------------------------------
@@ -9,9 +10,9 @@ Cette page affiche la liste des voitures disponibles sur le site
 - Inclure le fichier donnees.inc.php contenant les données des voitures
 - Commencer par le fichier Auto.php
 =========================================================================
-
-
-
+*/
+include "../src/Auto.php";
+include "../src/donnees.inc.php";
 ?><!DOCTYPE html>
 <html lang="fr">
 

@@ -3,7 +3,7 @@
 =========================================================================
 Intégration web III - TP1
 -------------------------------------------------------------------------
-Votre nom :
+Votre nom :Jairo Armando Orozco-Herrera
 -------------------------------------------------------------------------
 Cette page affiche la liste des modèles en fonction de la marque fournie dans l'adresse
 - Inclure le fichier de la class Auto
@@ -15,7 +15,8 @@ Cette page affiche la liste des modèles en fonction de la marque fournie dans l
 - Si la marque ne se trouve pas dans la variable $voitures, on DOIT retourner à la page index.php
 =========================================================================
 */
-
+include "../src/Auto.php";
+include "../src/donnees.inc.php";
 
 ?>
 <!DOCTYPE html>
